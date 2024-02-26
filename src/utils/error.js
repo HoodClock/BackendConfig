@@ -1,4 +1,4 @@
-const apiError = (status, message, err)=>{
+const apiError =  function(status, message, err){
     const errorCode = {
         status: status,
         message: `${message} | ${err}`,

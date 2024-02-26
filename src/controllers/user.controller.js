@@ -14,7 +14,7 @@ const registerUser = asyncHandler( async (req, res)=> {
         throw new apiError(401, "An Error occured while", "@ sign is missing.");
     }
     // check if the user already exsits
-    const exsited_User = User.findOne({
+    const exsited_User = await User.findOne({
         $or: [{ username }, { email }]
     })
     if (exsited_User){
@@ -56,6 +56,7 @@ const registerUser = asyncHandler( async (req, res)=> {
         throw new apiError(500, "An Error occured while", "registring the user")
     }
 
+    return res.status(201).json({createdUser});
 })
 
 export {registerUser}
