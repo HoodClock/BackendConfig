@@ -24,12 +24,10 @@ app.use(cookieParser());
 
 // routes Import
 import userRouter from './routes/user.routes.js'
-import loginRouter from './routes/login.routes.js'
-
 
 // routers declaration [we can use middle_wares app.use instead of app.get..]
 app.use("/api/v1/user", userRouter);
-app.use("/api/v2/login", loginRouter);
+
 
 
 export {app}
